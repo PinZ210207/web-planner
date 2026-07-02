@@ -1,0 +1,134 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks — Web Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@tabler/icons-webfont@@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="~/css/tasks.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-icon"><i class="ti ti-calendar-event"></i></div>
+    <span class="brand-name">Web Planner</span>
+  </div>
+  <div class="nav-section">
+    <p class="nav-label">Menu</p>
+    <a href="/Tasks" class="nav-link active"><i class="ti ti-checklist"></i> My Tasks</a>
+    <a href="/Tasks/Add" class="nav-link"><i class="ti ti-plus"></i> Add Task</a>
+  </div>
+  <div class="nav-section">
+    <p class="nav-label">Filter</p>
+    <a href="#" class="nav-link"><i class="ti ti-calendar-day"></i> Today</a>
+    <a href="#" class="nav-link"><i class="ti ti-calendar-week"></i> This Week</a>
+    <a href="#" class="nav-link"><i class="ti ti-flag"></i> High Priority</a>
+  </div>
+  <div class="sidebar-footer">
+    <div class="user-row">
+      <div class="avatar"></div>
+      <div class="user-info">
+        <div class="user-name"></div>
+        <div class="user-email"></div>
+      </div>
+    </div>
+    <a href="/Account/Login" class="nav-link" style="margin-top:4px;">
+      <i class="ti ti-logout"></i> Sign out
+    </a>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">My Tasks</h1>
+      <p class="page-sub" id="today-date"></p>
+    </div>
+    <a href="/Tasks/Add" class="btn btn-primary">
+      <i class="ti ti-plus"></i> Add Task
+    </a>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-icon" style="background:var(--green-bg);">
+        <i class="ti ti-checklist" style="color:var(--green);"></i>
+      </div>
+      <div>
+        <div class="stat-num" id="stat-total">0</div>
+        <div class="stat-label">Total tasks</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#fffbeb;">
+        <i class="ti ti-clock" style="color:#b45309;"></i>
+      </div>
+      <div>
+        <div class="stat-num" id="stat-inprogress">0</div>
+        <div class="stat-label">In progress</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:var(--danger-bg);">
+        <i class="ti ti-alert-circle" style="color:var(--danger);"></i>
+      </div>
+      <div>
+        <div class="stat-num" id="stat-high">0</div>
+        <div class="stat-label">High priority</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#e0f2fe;">
+        <i class="ti ti-circle-check" style="color:#0369a1;"></i>
+      </div>
+      <div>
+        <div class="stat-num" id="stat-done">0</div>
+        <div class="stat-label">Completed</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="search-wrap">
+      <i class="ti ti-search"></i>
+      <input type="text" class="search-input" placeholder="Search tasks…">
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active">Day</button>
+      <button class="filter-tab">Week</button>
+      <button class="filter-tab">Month</button>
+      <button class="filter-tab">Year</button>
+      <button class="filter-tab">All</button>
+    </div>
+    <select>
+      <option>All priorities</option>
+      <option>High</option>
+      <option>Medium</option>
+      <option>Low</option>
+    </select>
+  </div>
+
+  <div class="task-grid" id="task-grid"></div>
+</main>
+
+<script>
+  document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-US', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  });
+  document.querySelectorAll('.filter-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

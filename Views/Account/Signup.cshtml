@@ -1,0 +1,103 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up — Web Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@tabler/icons-webfont@@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="~/css/signup.css">
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="left">
+    <div class="brand">
+      <div class="brand-icon"><i class="ti ti-calendar-event"></i></div>
+      <span class="brand-name">Web Planner</span>
+    </div>
+    <div class="hero">
+      <h2>Plan better.<br>Achieve more.</h2>
+      <p>Organize your tasks, manage your time, and stay productive — all in one place.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"><i class="ti ti-calendar-event"></i></div>
+        <div class="feature-text"><h4>Smart Scheduling</h4><p>Plan your day with ease</p></div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><i class="ti ti-list-check"></i></div>
+        <div class="feature-text"><h4>Stay Organized</h4><p>Keep everything in one place</p></div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><i class="ti ti-bell"></i></div>
+        <div class="feature-text"><h4>Timely Reminders</h4><p>Never miss important tasks</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="form-icon"><i class="ti ti-calendar-event"></i></div>
+    <h1>Create account</h1>
+    <p class="subheading">Join Web Planner and start organizing today.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="first-name">First name</label>
+        <div class="field">
+          <i class="ti ti-user"></i>
+          <input type="text" id="first-name" placeholder="John" autocomplete="given-name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="last-name">Last name</label>
+        <div class="field">
+          <i class="ti ti-user"></i>
+          <input type="text" id="last-name" placeholder="Doe" autocomplete="family-name">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <div class="field">
+        <i class="ti ti-mail"></i>
+        <input type="email" id="email" placeholder="name@example.com" autocomplete="email">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <div class="field">
+        <i class="ti ti-lock"></i>
+        <input type="password" id="password" placeholder="Create a password" autocomplete="new-password">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="confirm-password">Confirm password</label>
+      <div class="field">
+        <i class="ti ti-lock-check"></i>
+        <input type="password" id="confirm-password" placeholder="Repeat your password" autocomplete="new-password">
+      </div>
+    </div>
+
+    <button class="btn">
+      Sign up <i class="ti ti-arrow-right"></i>
+    </button>
+
+    <p class="terms">
+      By signing up you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+    </p>
+
+    <p class="footer">Already have an account? <a href="/Account/Login">Sign in</a></p>
+  </div>
+
+</div>
+</body>
+</html>
