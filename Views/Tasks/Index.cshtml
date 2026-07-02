@@ -26,10 +26,9 @@
     <a href="/Tasks/Add" class="nav-link"><i class="ti ti-plus"></i> Add Task</a>
   </div>
   <div class="nav-section">
-    <p class="nav-label">Filter</p>
-    <a href="#" class="nav-link"><i class="ti ti-calendar-day"></i> Today</a>
-    <a href="#" class="nav-link"><i class="ti ti-calendar-week"></i> This Week</a>
-    <a href="#" class="nav-link"><i class="ti ti-flag"></i> High Priority</a>
+    <a href="#" class="nav-link" data-filter="today"><i class="ti ti-calendar-day"></i> Today</a>
+    <a href="#" class="nav-link" data-filter="week"><i class="ti ti-calendar-week"></i> This Week</a>
+    <a href="#" class="nav-link" data-filter="high"><i class="ti ti-flag"></i> High Priority</a>
   </div>
   <div class="sidebar-footer">
     <div class="user-row">
@@ -39,6 +38,9 @@
         <div class="user-email"></div>
       </div>
     </div>
+    <a href="/Account/Profile" class="nav-link">
+    <i class="ti ti-user"></i> Profile
+</a>
     <a href="/Account/Login" class="nav-link" style="margin-top:4px;">
       <i class="ti ti-logout"></i> Sign out
     </a>
@@ -118,17 +120,7 @@
   <div class="task-grid" id="task-grid"></div>
 </main>
 
-<script>
-  document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-US', {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-  });
-  document.querySelectorAll('.filter-tab').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-</script>
+<script src="~/js/tasks.js"></script>
 
 </body>
 </html>

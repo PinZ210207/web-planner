@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@tabler/icons-webfont@@latest/tabler-icons.min.css">
-    <link rel="stylesheet" href="/css/add-tasks.css">
+    <link rel="stylesheet" href="~/css/add-tasks.css">
 </head>
 <body>
 
@@ -22,7 +22,7 @@
   </div>
   <div class="nav-section">
     <p class="nav-label">Menu</p>
-    <a href="/Tasks" class="nav-link"><i class="ti ti-checklist"></i> My Tasks</a>
+    <a href="/Tasks/Index" class="nav-link"><i class="ti ti-checklist"></i> My Tasks</a>
     <a href="/Tasks/Add" class="nav-link active"><i class="ti ti-plus"></i> Add Task</a>
   </div>
   <div class="nav-section">
@@ -47,7 +47,7 @@
 
 <main class="main">
   <div class="page-header">
-    <a href="/Tasks" class="back-btn"><i class="ti ti-arrow-left"></i> Back</a>
+    <a href="/Tasks/Index" class="back-btn"><i class="ti ti-arrow-left"></i> Back</a>
     <h1 class="page-title">Add Task</h1>
   </div>
 
@@ -124,78 +124,12 @@
     </div>
 
     <div class="form-actions">
-      <button class="btn btn-primary"><i class="ti ti-check"></i> Save task</button>
-      <a href="/Tasks" class="btn btn-ghost">Cancel</a>
+      <button class="btn btn-primary" id="save-btn"><i class="ti ti-check"></i> Save task</button>
+      <a href="/Tasks/Index" class="btn btn-ghost">Cancel</a>
     </div>
   </div>
 </main>
 
-<script>
-  const fileDrop  = document.getElementById('file-drop');
-  const fileInput = document.getElementById('file-input');
-  const fileList  = document.getElementById('file-list');
-
-  fileDrop.addEventListener('click', () => fileInput.click());
-  fileDrop.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    fileDrop.style.borderColor = 'var(--green)';
-    fileDrop.style.background = 'var(--green-bg)';
-  });
-  fileDrop.addEventListener('dragleave', () => {
-    fileDrop.style.borderColor = '';
-    fileDrop.style.background = '';
-  });
-  fileDrop.addEventListener('drop', (e) => {
-    e.preventDefault();
-    fileDrop.style.borderColor = '';
-    fileDrop.style.background = '';
-    fileInput.files = e.dataTransfer.files;
-    renderFiles();
-  });
-  fileInput.addEventListener('change', renderFiles);
-
-  function renderFiles() {
-    fileList.innerHTML = '';
-    Array.from(fileInput.files).forEach((file) => {
-      const item = document.createElement('div');
-      item.style.cssText = 'display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-top:8px;font-size:13px;';
-      item.innerHTML = `<i class="ti ti-file" style="color:var(--green);font-size:15px;"></i> ${file.name}`;
-      fileList.appendChild(item);
-    });
-  }
-
-  const subtaskInput = document.getElementById('subtask-input');
-  const subtaskList  = document.getElementById('subtask-list');
-  let subtasks = [];
-
-  document.getElementById('add-subtask-btn').addEventListener('click', addSubtask);
-  subtaskInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); addSubtask(); } });
-
-  function addSubtask() {
-    const text = subtaskInput.value.trim();
-    if (!text) return;
-    subtasks.push(text);
-    subtaskInput.value = '';
-    renderSubtasks();
-  }
-
-  function renderSubtasks() {
-    subtaskList.innerHTML = subtasks.map((s, i) => `
-      <div class="subtask-item">
-        <i class="ti ti-grip-vertical"></i>
-        <span style="flex:1;">${s}</span>
-        <button onclick="removeSubtask(${i})" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:14px;">
-          <i class="ti ti-x"></i>
-        </button>
-      </div>
-    `).join('');
-  }
-
-  function removeSubtask(i) {
-    subtasks.splice(i, 1);
-    renderSubtasks();
-  }
-</script>
-
+<script src="~/js/add-task.js"></script>
 </body>
 </html>

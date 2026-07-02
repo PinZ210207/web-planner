@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\Desktop\\Web-Planner\\WebPlannerMVC\\WebPlannerMVC.csproj": {}
+    "C:\\Users\\ASUS\\Desktop\\Web-Planner - Copy\\WebPlannerMVC\\WebPlannerMVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\Desktop\\Web-Planner\\WebPlannerMVC\\WebPlannerMVC.csproj": {
+    "C:\\Users\\ASUS\\Desktop\\Web-Planner - Copy\\WebPlannerMVC\\WebPlannerMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Web-Planner\\WebPlannerMVC\\WebPlannerMVC.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Web-Planner - Copy\\WebPlannerMVC\\WebPlannerMVC.csproj",
         "projectName": "WebPlannerMVC",
-        "projectPath": "C:\\Users\\ASUS\\Desktop\\Web-Planner\\WebPlannerMVC\\WebPlannerMVC.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Desktop\\Web-Planner - Copy\\WebPlannerMVC\\WebPlannerMVC.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Desktop\\Web-Planner\\WebPlannerMVC\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Desktop\\Web-Planner - Copy\\WebPlannerMVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,22 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

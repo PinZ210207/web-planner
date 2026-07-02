@@ -4,14 +4,8 @@ namespace WebPlannerMVC.Controllers
 {
     public class AccountController : Controller
     {
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        public IActionResult Signup()
-        {
-            return View();
-        }
+        public IActionResult Login() => View();
+        public IActionResult Signup() => View();
+        public IActionResult Profile() => View();
     }
 }
